@@ -11,7 +11,21 @@ alias reload="source ~/.zshrc"
 alias config="vim ~/.zshrc"
 alias mongodb="mongod --config /usr/local/etc/mongod.conf"
 alias postgres="postgres -D /usr/local/var/postgres"
-
+alias ga='git add'
+alias gps='git push'
+alias gl='git log'
+alias gs='git status'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gm='git commit -m'
+alias gma='git commit -am'
+alias gb='git branch'
+alias gc='git checkout'
+alias gra='git remote add'
+alias grr='git remote rm'
+alias gpl='git pull'
+alias gpr='git pull --rebase'
+alias gcl='git clone'
 PGDATA=/usr/local/var/postgres
 
 eval "$(rbenv init -)"
