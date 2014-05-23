@@ -1,7 +1,7 @@
-# Kevin's Dotfiles
+# Abraham's Dotfiles
 
 ```bash
-$ git clone https://github.com/kevinbuch/dotfiles
+$ git clone https://github.com/abrahamsangha/dotfiles
 
 $ cd dotfiles
 
