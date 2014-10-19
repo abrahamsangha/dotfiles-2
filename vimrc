@@ -18,6 +18,7 @@ Bundle "https://github.com/tpope/vim-fireplace"
 Bundle "https://github.com/kchmck/vim-coffee-script"
 Bundle "https://github.com/slim-template/vim-slim"
 Bundle "https://github.com/nelstrom/vim-visual-star-search"
+Bundle 'benmills/vimux'
 
 filetype plugin indent on
 syntax on
@@ -103,3 +104,6 @@ map <Leader>. :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+set splitbelow
+set splitright

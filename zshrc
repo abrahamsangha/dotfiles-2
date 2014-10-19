@@ -1,4 +1,6 @@
-PATH=/usr/local/bin:/usr/local/sbin:$PATH
+PATH=/usr/local/bin:/usr/local/sbin:~/play/adt-bundle-mac-x86_64-20140702/sdk/tools:~/play/adt-bundle-mac-x86_64-20140702/sdk/platform-tools:$PATH
+
+export PGHOST=localhost
 
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
@@ -26,7 +28,9 @@ alias grr='git remote rm'
 alias gpl='git pull'
 alias gpr='git pull --rebase'
 alias gcl='git clone'
+alias ll='ls -hal | more'
 PGDATA=/usr/local/var/postgres
+
 
 eval "$(rbenv init -)"
 
@@ -58,4 +62,5 @@ parse_git_dirty() {
     echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
   fi
 }
-
+# Parse rake tasks properly http://robots.thoughtbot.com/how-to-use-arguments-in-a-rake-task
+unsetopt nomatch
