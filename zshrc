@@ -6,6 +6,7 @@ zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
 autoload -U compinit && compinit
 
+
 alias tmux='tmux -2'
 alias be="bundle exec "
 alias bi="bundle install"
@@ -37,6 +38,7 @@ eval "$(rbenv init -)"
 autoload colors; colors;
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 setopt prompt_subst
+setopt autocd
 
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
@@ -64,3 +66,16 @@ parse_git_dirty() {
 }
 # Parse rake tasks properly http://robots.thoughtbot.com/how-to-use-arguments-in-a-rake-task
 unsetopt nomatch
+
+#key bindings
+#bindkey "\e[1~" beginning-of-line
+#bindkey "\e[4~" end-of-line
+#bindkey "^b" beginning-of-line
+#bindkey "^E" end-of-line
+bindkey "^R" history-incremental-search-backward
+bindkey "^S" history-incremental-search-backward
+bindkey "^P" history-search-backward
+bindkey "^N" history-search-backward
+#bindkey "^Y" accept-and-hold
+
+
