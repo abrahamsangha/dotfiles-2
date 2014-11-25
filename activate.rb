@@ -7,6 +7,7 @@ LINKS = ["vim",
          "zsh",
          "zshrc",
          "tmux.conf",
+         "psqlrc",
          "gitconfig"]
 
 working_dir = File.expand_path(File.dirname(__FILE__))
