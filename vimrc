@@ -20,6 +20,7 @@ Bundle "https://github.com/slim-template/vim-slim"
 Bundle "https://github.com/nelstrom/vim-visual-star-search"
 Bundle 'benmills/vimux'
 Bundle 'https://github.com/elixir-lang/vim-elixir'
+Bundle 'rizzatti/dash.vim'
 
 filetype plugin indent on
 syntax on
