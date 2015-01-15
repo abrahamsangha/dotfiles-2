@@ -21,6 +21,7 @@ Bundle "https://github.com/nelstrom/vim-visual-star-search"
 Bundle 'benmills/vimux'
 Bundle 'https://github.com/elixir-lang/vim-elixir'
 Bundle 'rizzatti/dash.vim'
+Bundle 'airblade/vim-gitgutter'
 
 filetype plugin indent on
 syntax on
