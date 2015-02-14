@@ -22,6 +22,9 @@ Bundle 'benmills/vimux'
 Bundle 'https://github.com/elixir-lang/vim-elixir'
 Bundle 'rizzatti/dash.vim'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'amdt/vim-niji'
+Bundle "https://github.com/vim-scripts/paredit.vim"
 
 filetype plugin indent on
 syntax on
@@ -110,3 +113,19 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 set splitbelow
 set splitright
+
+"Correctly indent Lisp (Dorai Sitaram)
+autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.rkt
+
+" Vimux
+function! VimuxSlime()
+  call VimuxSendText(@v)
+  call VimuxSendKeys("Enter")
+endfunction
+
+" If text is selected, save it in the v buffer and send that buffer to tmux
+vmap <Leader>vs "vy :call VimuxSlime()<CR>
+
+" Select current paragraph and send it to tmux
+nmap <Leader>vs vip<Leader>vs<CR>
+

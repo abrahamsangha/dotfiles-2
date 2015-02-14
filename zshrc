@@ -1,4 +1,4 @@
-PATH=/usr/local/bin:/usr/local/sbin:~/play/adt-bundle-mac-x86_64-20140702/sdk/tools:~/play/adt-bundle-mac-x86_64-20140702/sdk/platform-tools:$PATH
+PATH=/usr/local/bin:/usr/local/sbin:~/bin:/Applications/Racket\ v6.1.1/bin:/usr/local/heroku/bin:~/play/adt-bundle-mac-x86_64-20140702/sdk/tools:~/play/adt-bundle-mac-x86_64-20140702/sdk/platform-tools:$PATH
 
 export PGHOST=localhost
 
@@ -77,5 +77,4 @@ bindkey "^S" history-incremental-search-backward
 bindkey "^P" history-search-backward
 bindkey "^N" history-search-backward
 #bindkey "^Y" accept-and-hold
-
 
