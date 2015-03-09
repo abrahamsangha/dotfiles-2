@@ -30,6 +30,7 @@ alias gpl='git pull'
 alias gpr='git pull --rebase'
 alias gcl='git clone'
 alias ll='ls -hal | more'
+alias rrepl='racket -i -p neil/sicp -l xrepl'
 PGDATA=/usr/local/var/postgres
 
 

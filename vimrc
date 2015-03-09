@@ -24,7 +24,7 @@ Bundle 'rizzatti/dash.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'amdt/vim-niji'
-Bundle "https://github.com/vim-scripts/paredit.vim"
+Bundle 'https://github.com/vim-scripts/paredit.vim'
 
 filetype plugin indent on
 syntax on
@@ -40,7 +40,7 @@ let vimclojure#HightlightBuiltins=1
 let vimclojure#ParenRainbow=1
 
 let g:paredit_matchlines=200
-let g:paredit_mode=0
+let g:paredit_mode=1
 
 let NERDTreeShowHidden=1
 
@@ -129,3 +129,9 @@ vmap <Leader>vs "vy :call VimuxSlime()<CR>
 " Select current paragraph and send it to tmux
 nmap <Leader>vs vip<Leader>vs<CR>
 
+" Open a runner pane and start the Racket REPL
+nmap <Leader>rr :call Sicp()<CR>
+
+function! Sicp()
+  call VimuxRunCommand("rrepl")
+endfunction
