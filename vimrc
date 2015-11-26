@@ -25,6 +25,14 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'amdt/vim-niji'
 Bundle 'https://github.com/vim-scripts/paredit.vim'
+Bundle 'fatih/vim-go'
+Bundle 'tpope/vim-commentary'
+Bundle 'https://github.com/mxw/vim-jsx'
+Bundle 'rust-lang/rust.vim'
+Bundle 'https://github.com/lambdatoast/elm.vim'
+Bundle 'https://github.com/FelikZ/ctrlp-py-matcher'
+Bundle 'https://github.com/xolox/vim-misc'
+Bundle 'https://github.com/xolox/vim-easytags'
 
 filetype plugin indent on
 syntax on
@@ -41,8 +49,20 @@ let vimclojure#ParenRainbow=1
 
 let g:paredit_matchlines=200
 let g:paredit_mode=1
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
 
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_working_path_mode = 'ra'
 let NERDTreeShowHidden=1
+
+let g:rspec_command = "!bundle exec rspec {spec}"
+let g:rspec_runner = "os_x_iterm2"
 
 set backspace=indent,eol,start
 set nocompatible
@@ -92,7 +112,7 @@ colorscheme tomorrow-night
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-let mapleader = "\\"
+let mapleader = ","
 
 map <C-H> <C-W>h
 map <C-L> <C-W>l
@@ -135,3 +155,28 @@ nmap <Leader>rr :call Sicp()<CR>
 function! Sicp()
   call VimuxRunCommand("rrepl")
 endfunction
+
+" run current file with rspec
+map <Leader>rb :call VimuxRunCommand("clear; be rspec " . bufname("%"))<CR>
+
+" Run last vimux command
+map <Leader>vl :VimuxRunLastCommand<CR>
+
+" Inspect runner pane
+map <Leader>vi :VimuxInspectRunner<CR>
+
+" Close runner pane
+map <Leader>vx :VimuxCloseRunner<CR>
+
+" Interrupt runner pane
+map <Leader>vq :VimuxInterruptRunner<CR>
+
+" Open runner pane
+map <Leader>vo :call VimuxOpenPane()<CR>
+
+" Prompt for a command to run
+map <Leader>vc :call VimuxPromptCommand()<CR>
+
+" vim-commentary for ruby
+autocmd FileType ruby set commentstring=#\ %s
+
