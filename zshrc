@@ -17,13 +17,14 @@ alias be="bundle exec "
 alias bi="bundle install"
 alias ber="bundle exec rake"
 alias dbm="bundle exec rake db:migrate"
-alias dbst="bundle exec rake db:migrate:status"
+alias dbms="bundle exec rake db:migrate:status"
 alias dbd="bundle exec rake db:drop"
-alias dbs="rake db:seed db:bootstrap"
-alias dbb="rake db:bootstrap"
-alias tpd="rake test:prepare_db"
+alias dbs="bundle exec rake db:seed db:bootstrap"
+alias dbb="bundle exec rake db:bootstrap"
+alias tpd="RAILS_ENV=test bundle exec rake db:migrate"
 alias dbr="ber db:create db:structure:load"
 alias srs="be spring rspec"
+alias sps="be spring stop"
 alias rsp="be rspec"
 alias cbg="rake campaign:billing_generate"
 
@@ -49,6 +50,7 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gm='git commit -m'
 alias gma='git commit -am'
+alias gcm='git commit'
 alias gb='git branch'
 alias gc='git checkout'
 alias gra='git remote add'
@@ -68,6 +70,10 @@ alias grh= 'git reset --hard'
 alias ll='ls -hal | more'
 alias tl='tail -f log/development.log'
 alias rrepl='racket -i -p neil/sicp -l xrepl'
+
+alias et='ls *.exs | entr sh -c "elixir *_test.exs ; date"'
+
+
 PGDATA=/usr/local/var/postgres
 
 

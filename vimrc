@@ -63,6 +63,7 @@ let NERDTreeShowHidden=1
 
 let g:rspec_command = "!bundle exec rspec {spec}"
 let g:rspec_runner = "os_x_iterm2"
+let g:easytags_async=1
 
 set backspace=indent,eol,start
 set nocompatible
@@ -157,7 +158,7 @@ function! Sicp()
 endfunction
 
 " run current file with rspec
-map <Leader>rb :call VimuxRunCommand("clear; be rspec " . bufname("%"))<CR>
+map <Leader>rb :call VimuxRunCommand("clear; srs " . bufname("%"))<CR>
 
 " Run last vimux command
 map <Leader>vl :VimuxRunLastCommand<CR>

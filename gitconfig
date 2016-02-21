@@ -9,6 +9,7 @@
 	autocrlf = input
   safecrlf = true
 	editor = vim
+	excludesfile = ~/.gitignore_global
 
 [alias]
   co = checkout
