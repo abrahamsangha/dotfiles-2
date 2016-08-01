@@ -1,4 +1,9 @@
 PATH=/usr/local/bin:/usr/local/sbin:~/bin:~/.exenv/bin:/Applications/Racket\ v6.1.1/bin:/usr/local/heroku/bin:~/play/adt-bundle-mac-x86_64-20140702/sdk/tools:~/play/adt-bundle-mac-x86_64-20140702/sdk/platform-tools:$PATH
+[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export PGHOST=localhost
 export GOPATH=$HOME/go
@@ -6,6 +11,9 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export VISUAL=vim
 export EDITOR=$VISUAL
+export HOMEBREW_NO_ANALYTICS=1
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
@@ -19,14 +27,15 @@ alias ber="bundle exec rake"
 alias dbm="bundle exec rake db:migrate"
 alias dbms="bundle exec rake db:migrate:status"
 alias dbd="bundle exec rake db:drop"
-alias dbs="bundle exec rake db:seed db:bootstrap"
-alias dbb="bundle exec rake db:bootstrap"
-alias tpd="RAILS_ENV=test bundle exec rake db:migrate"
-alias dbr="ber db:create db:structure:load"
+alias dbc="bundle exec rake db:create"
+alias tpd="RAILS_ENV=test bundle exec rake db:drop db:create db:structure:load"
+alias ts="RAILS_ENV=test bundle exec rake db:seed"
+alias dbr="ber db:drop db:create db:structure:load"
 alias srs="be spring rspec"
 alias sps="be spring stop"
 alias rsp="be rspec"
-alias cbg="rake campaign:billing_generate"
+alias rb='bundle config --local frozen false && bundle install && bundle config --local frozen true'
+alias rbu='bundle config --local frozen false && bundle update && bundle config --local frozen true'
 
 #powder commands
 alias pr="powder restart"
@@ -40,7 +49,7 @@ alias config="vim ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 alias viminstall="vim +PluginInstall +qall"
 alias mongodb="mongod --config /usr/local/etc/mongod.conf"
-alias postgres="postgres -D /usr/local/var/postgres"
+# alias postgres="postgres -D /usr/local/var/postgres"
 
 alias ga='git add'
 alias gps='git push'
@@ -52,7 +61,7 @@ alias gm='git commit -m'
 alias gma='git commit -am'
 alias gcm='git commit'
 alias gb='git branch'
-alias gc='git checkout'
+alias gco='git checkout'
 alias gra='git remote add'
 alias grr='git remote rm'
 alias gf='git fetch'
@@ -77,8 +86,8 @@ alias et='ls *.exs | entr sh -c "elixir *_test.exs ; date"'
 PGDATA=/usr/local/var/postgres
 
 
-eval "$(rbenv init -)"
-eval "$(exenv init -)"
+# eval "$(rbenv init -)"
+# eval "$(exenv init -)"
 
 autoload colors; colors;
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
@@ -123,13 +132,17 @@ bindkey "^P" history-search-backward
 bindkey "^N" history-search-backward
 #bindkey "^Y" accept-and-hold
 
-function cmmstop() {
-cat <<EOC | psql cmm_development
+function pgstop() {
+cat <<EOC | psql avant_test
 SELECT pg_terminate_backend(pg_stat_activity.pid)
 FROM pg_stat_activity
-WHERE pg_stat_activity.datname = 'cmm_development'
+WHERE pg_stat_activity.datname = 'avant_test'
 AND pid <> pg_backend_pid();
 EOC
 }
 
-stty sane
+# stty sane
+
+# Docker
+eval "$(docker-machine env default)"
+alias dr='docker-compose run web '

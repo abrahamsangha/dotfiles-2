@@ -1,3 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/abraham.sangha/exercism/elixir/bob'
+let g:netrw_dirhist_2='/Users/asangh23/dotfiles'
+let g:netrw_dirhist_3='/Users/asangh23/.rvm/gems/ruby-2.3.1/gems/virtus-1.0.5'
+let g:netrw_dirhist_4='/Users/asangh23/.rvm/gems/ruby-2.2.3/gems/eventmachine-1.0.7'
+let g:netrw_dirhist_5='/Users/asangh23/.zsh'
+let g:netrw_dirhist_6='/Users/asangh23/.rvm/gems/ruby-2.3.1/gems/ancestry-2.1.0'
+let g:netrw_dirhist_7='/Users/asangh23/play/js/react-play/github-battle'

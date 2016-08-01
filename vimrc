@@ -33,6 +33,9 @@ Bundle 'https://github.com/lambdatoast/elm.vim'
 Bundle 'https://github.com/FelikZ/ctrlp-py-matcher'
 Bundle 'https://github.com/xolox/vim-misc'
 Bundle 'https://github.com/xolox/vim-easytags'
+Bundle 'https://github.com/tpope/vim-surround'
+Bundle 'https://github.com/tpope/vim-repeat'
+Bundle 'godlygeek/tabular'
 
 filetype plugin indent on
 syntax on
